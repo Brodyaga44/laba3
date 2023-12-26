@@ -1,58 +1,55 @@
 # BMI  Calculator
->  Описание: В ходе данной работы был разработан калькулятор **[ИМТ](https://en.wikipedia.org/wiki/Body_mass_index)** (Индекс массы тела).
+>  Описание: В ходе данной работы был разработан **prototype**, позволяющий рисовать различные фигуры на полоте.
 - Технологический стек: Java
-- Статус: 1.7.2.
+- Статус: 2.1
 - По сравнению с другими подобными продуктами, данная разработка отличается интуитивно понятным интерфейсом.
 
   **Скриншот рабочего окна приложения:**
   ----------------------------------------
- ![image](https://github.com/Brodyaga44/Task1/assets/145764043/f684ff0a-41f3-4832-aec4-e30ef2744741)
+![image](https://github.com/Brodyaga44/laba3/assets/145764043/a49c0838-e59b-422c-9e13-f8c5b498112c)
 
-**Разбор части кода на примере класса BMI**
+
+**Разбор части кода на примере класса SQUARE**
 ```
-public class BMI {
-    private float weight;
-    private float height;
-    public BMI() {
-        this.height = 0;
-        this.weight = 0;
+package com.example.prototype.shapes;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+
+public class Square extends Shape implements Cloneable{
+    public Square(Color color) {
+        super(color);
     }
-    public BMI(float BodyHeight, float BodyMass) {
-        this.height = BodyHeight;
-        this.weight = BodyMass;
+    @Override
+    public void draw(GraphicsContext gc,MouseEvent mouseEvent) {
+        gc.setLineWidth(2.0);
+        gc.setFill(color);
+        gc.setStroke(Color.BLACK);
+        gc.setLineWidth(6.0);
+        gc.strokeRect(mouseEvent.getX() - 52/2, mouseEvent.getY()- 52/2, 52, 52);
+        gc.fillRect(mouseEvent.getX() - 52/2, mouseEvent.getY()- 52/2, 52, 52);
     }
-    public float calculate()
-    {
-        return this.weight/this.height/this.height*10000;
-    }
-    public String diagnosis(){
-        if (18.5 <= calculate() &&  calculate() < 25)
-        {
-            return "Вывод: Ваш ИМТ в норме";
-        }
-        else if (calculate() < 25) {
-            return "Вывод: У Вас нехватка веса";
-        }
-        else if (18.5 <= calculate()) {
-            return "Вывод: У Вас избыток веса";
-        }
-        return null;
+    @Override
+    public String toString() {
+        return "КВАДРАТ";
     }
 
     @Override
-    public String toString() {
-        return "BMI{" +
-                "weight=" + this.weight +
-                ", height=" + this.height +
-                '}';
+    public Square clone() {
+        return (Square) super.clone();
     }
+
+
 }
+
 ```
 ------------------------
 ## Архитектура
 > Диаграмма классов:
 
-![image](https://github.com/Brodyaga44/Task1/assets/145764043/2146c4d0-a464-4f38-a00f-69d49dccbcad)
+![prototype](https://github.com/Brodyaga44/laba3/assets/145764043/5c1c6b5f-7a7d-4d74-bfa6-e2ed3e0738a1)
+
 ## Завсимости
 Для работы данного приложежния необходимы JavaFX и JDK 20.
 
@@ -63,12 +60,11 @@ public class BMI {
 Не требуется
 
 ## Применение
-> Для работы с ним требуется указать некоторые *параметры*:
-1. Массу тела м
-2. Рост H
-Исходя из полученных значений, подставленных в формулу **bmi = M/H^2**
-Получается результат, который сравнивается с данной таблицей
-![BMI](https://fizkultura-fgos.ru/wp-content/uploads/0/4/6/0466c04ae9068a1154f5e89d80bf3968.png)
+> Для работы с ним требуется:
+1. Выбрать нужную фигуру из списка
+2. Выбрать цвет
+3. Нажать на любом месте окна
+
 
 ## Проверка ПО
 Не предусмотрена
@@ -83,7 +79,6 @@ public class BMI {
 В дальнейшем предполагается передаботка действующего дизайна интерфейса
 
 ## Источники и справочники
-- [Что такое BMI?](https://ru.wikipedia.org/wiki/Индекс_массы_тела)
+- [Что такое Prototype?]([https://ru.wikipedia.org/wiki/Индекс_массы_тела](https://ru.wikipedia.org/wiki/Прототип_(шаблон_проектирования)))
 - [Образовательная платформа Stepik](https://stepik.org/learn)
 
-//ссылка, картинка, кусок кода, диаграмма классов
