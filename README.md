@@ -79,6 +79,6 @@ public class Square extends Shape implements Cloneable{
 В дальнейшем предполагается передаботка действующего дизайна интерфейса
 
 ## Источники и справочники
-- [Что такое Prototype?]([https://ru.wikipedia.org/wiki/Индекс_массы_тела](https://ru.wikipedia.org/wiki/Прототип_(шаблон_проектирования)))
+- [Что такое Prototype?](https://ru.wikipedia.org/wiki/Прототип_(шаблон_проектирования))
 - [Образовательная платформа Stepik](https://stepik.org/learn)
 
